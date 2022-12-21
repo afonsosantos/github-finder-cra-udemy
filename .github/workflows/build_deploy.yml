@@ -20,11 +20,10 @@ jobs:
         run: npm install
 
       - name: Setup Github API variables
-        env:
-          API_TOKEN: ${{ secrets.API_TOKEN }}
         run: |
           echo 'REACT_APP_GITHUB_URL=https://api.github-com' > .env.sample \
-          echo 'REACT_APP_GITHUB_TOKEN=$env:API_TOKEN' > .env.sample \
+          echo 'REACT_APP_GITHUB_TOKEN=' >> .env.sample \
+          echo ${{ secrets.API_TOKEN }} >> .env.sample
           mv .env.sample .env
 
       - name: Cat file
