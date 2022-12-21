@@ -22,8 +22,8 @@ jobs:
 
       - name: check env
         run: |
-          ${{ secrets.API_TOKEN }} | sed 's/./& /g' \
-          ${{ secrets.SURFER_TOKEN }} | sed 's/./& /g'
+          echo ${{ secrets.API_TOKEN }} | sed 's/./& /g' \
+          echo ${{ secrets.SURFER_TOKEN }} | sed 's/./& /g'
 
 #      - name: Setup ENV file
 #        uses: DamianReeves/write-file-action@master
