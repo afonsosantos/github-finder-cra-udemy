@@ -64,4 +64,4 @@ jobs:
       - name: Copy build to Surfer
         run: |
           cd build &&
-          surfer put --token ${{ secrets.SURFER_TOKEN }} --server github-finder.santoscloud.pt . /
+          surfer put --token ${{ secrets.SURFER_TOKEN }} --server github-finder.santoscloud.pt / .
