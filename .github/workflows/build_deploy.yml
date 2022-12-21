@@ -44,6 +44,11 @@ jobs:
     needs: build
 
     steps:
+      - name: Setup Node.js v18
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+
       - name: Download build from artifacts
         uses: actions/download-artifact@v3
         with:
@@ -54,7 +59,5 @@ jobs:
         run: npm -g install cloudron-surfer
 
       - name: Copy build to Surfer
-        env:
-          SURFER_API_TOKEN: ${{ secrets.SURFER_TOKEN }}
         run: |
-          surfer put --token "$SURFER_API_TOKEN" --server github-finder.santoscloud.pt build/. /
+          surfer put --token ${{ secrets.SURFER_TOKEN }} --server github-finder.santoscloud.pt build/. /
