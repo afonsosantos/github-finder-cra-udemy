@@ -58,15 +58,12 @@ jobs:
           name: react_build
           path: build
 
-      #- name: Install Surfer CLI
-      #  run: npm -g install cloudron-surfer
+      - name: Install Surfer CLI
+        run: npm -g install cloudron-surfer
 
-      #- name: Move to build directory
-      #  run: cd build
+      - name: Move to build directory
+        run: cd build
 
-      - name: LS folder
-        run: ls -la build/
-
-      #- name: Copy build to Surfer
-      #  run: |
-      #    surfer put --token ${{ secrets.SURFER_TOKEN }} --server github-finder.santoscloud.pt ./ /
+      - name: Copy build to Surfer
+        run: |
+          surfer put --token ${{ secrets.SURFER_TOKEN }} --server github-finder.santoscloud.pt . /
