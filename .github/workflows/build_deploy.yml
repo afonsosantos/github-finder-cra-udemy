@@ -57,4 +57,4 @@ jobs:
         env:
           SURFER_API_TOKEN: ${{ secrets.SURFER_TOKEN }}
         run: |
-          surfer put --token $env:SURFER_API_TOKEN --server github-finder.santoscloud.pt build/. /
+          surfer put --token "$SURFER_API_TOKEN" --server github-finder.santoscloud.pt build/. /
