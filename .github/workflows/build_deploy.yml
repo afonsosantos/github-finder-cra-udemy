@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    name: Build the application
     runs-on: ubuntu-latest
 
     steps:
@@ -22,6 +23,7 @@ jobs:
       - name: Setup Github API variables
         run: |
           echo 'REACT_APP_GITHUB_URL=https://api.github-com' > .env.sample \
+          echo \n >> .env.sample \
           echo 'REACT_APP_GITHUB_TOKEN=' >> .env.sample \
           echo ${{ secrets.API_TOKEN }} >> .env.sample
           mv .env.sample .env
@@ -39,6 +41,7 @@ jobs:
           path: build/
 
   deploy:
+    name: Deploy to Surfer
     runs-on: ubuntu-latest
     needs: build
 
