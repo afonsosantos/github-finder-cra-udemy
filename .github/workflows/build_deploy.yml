@@ -39,7 +39,7 @@ jobs:
           path: build/
 
   deploy:
-    name: Deploy to Surfer
+    name: Deploy
     runs-on: ubuntu-latest
     needs: build
 
@@ -57,4 +57,4 @@ jobs:
         env:
           SURFER_API_TOKEN: ${{ secrets.SURFER_TOKEN }}
         run: |
-          surfer put --token "$env:SURFER_API_TOKEN" --server github-finder.santoscloud.pt build/. /
+          surfer put --token '$env:SURFER_API_TOKEN' --server github-finder.santoscloud.pt build/. /
