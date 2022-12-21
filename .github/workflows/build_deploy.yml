@@ -20,16 +20,17 @@ jobs:
       - name: Install Node dependencies
         run: npm install
 
-      - name: Setup Github API variables
-        run: |
-          echo 'REACT_APP_GITHUB_URL=https://api.github-com' > .env.sample \
-          echo \n >> .env.sample \
-          echo 'REACT_APP_GITHUB_TOKEN=' >> .env.sample \
-          echo ${{ secrets.API_TOKEN }} >> .env.sample
-          mv .env.sample .env
+      - name: Setup ENV file
+        uses: DamianReeves/write-file-action@master
+        with:
+          path: .env.sample
+          contents: |
+            REACT_APP_GITHUB_URL=https://api.github-com
+            REACT_APP_GITHUB_TOKEN=${{ secrets.API_TOKEN }}
+          write-mode: overwrite
 
       - name: Cat file
-        run: cat .env
+        run: cat .env.sample
 
       - name: Build React app
         run: npm run build --if-present
