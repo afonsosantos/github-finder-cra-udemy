@@ -54,4 +54,4 @@ jobs:
         run: npm -g install cloudron-surfer
 
       - name: Copy build to Surfer
-        run: surfer put --token ${{ secrets.SURFER_TOKEN }} --server github-finder.santoscloud.pt build/. /
+        run: surfer put --token "${{ secrets.SURFER_TOKEN }}" --server github-finder.santoscloud.pt build/. /
